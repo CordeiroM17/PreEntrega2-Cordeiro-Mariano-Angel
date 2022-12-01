@@ -20,7 +20,7 @@ function precio_total(compra) {
 }
 
 function imprimir_resultados(cuota_seleccionada, compra, compra_seleccionada) {
-    console.log("<---- ",compra," ---->");
+    console.log("<---- ",compra.toUpperCase()," ---->");
     console.log("Precio: ",compra_seleccionada);
     console.log(cuota_seleccionada," Cuotas de ",calcular_cuota(cuota_seleccionada, precio_total(compra)));
     console.log("Precio final mas IVA: ",precio_total(compra));
