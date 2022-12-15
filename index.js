@@ -1,58 +1,47 @@
-// PROGRAMA QUE PERMITE COMPRAR IMPRESORAS, LAPTOPS O MONITORES
+//Formulario Medico 
 
-function calcular_cuota(cuota, compra) {
-    let cuota_total = compra / cuota;
-    return cuota_total;
+let base_de_pacientes = [];
+
+function paciente(nombre, apellido, correo, grupo_sanguineo, factor) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.correo = correo;
+    this.grupo_sanguineo = grupo_sanguineo;
+    this.factor = factor;
 }
 
-function precio_total(compra) {
-    let total;
-    if (compra == "impresoras") {
-        total = impresora + (impresora * 0.21);
-    }
-    else if (compra == "laptops") {
-        total = laptops + (laptops * 0.21);
-    }
-    else {
-        total = monitores + (monitores * 0.21);
-    }
-    return total;
-}
+function capturar() {
+     
+    let nombre_capturado = document.getElementById("nombre").value;
+    let apellido_capturado = document.getElementById("apellido").value;
+    let correo_capturado = document.getElementById("correo").value;
+    let grupo_sanguineo_capturado = document.getElementById("grupo_sanguineo").value;
+    let factor_capturado = document.getElementById("factor").value;
 
-function imprimir_resultados(cuota_seleccionada, compra, compra_seleccionada) {
-    console.log("<---- ",compra.toUpperCase()," ---->");
-    console.log("Precio: ",compra_seleccionada);
-    console.log(cuota_seleccionada," Cuotas de ",calcular_cuota(cuota_seleccionada, precio_total(compra)));
-    console.log("Precio final mas IVA: ",precio_total(compra));
-}
+    //Agrega al paciente a la tabla
+    function agrega_datos_paciente() {
+        let container_datos = document.getElementById("container_datos");
+        let datos = document.createElement("div");
+        datos.className = "datos";
+        container_datos.append(datos);
+        datos.innerHTML = `<h3> ${nuevo_paciente.nombre}</h3>
+                            <h3> ${nuevo_paciente.apellido}</h3>
+                            <h3> ${nuevo_paciente.correo}</h3>
+                            <h3> ${nuevo_paciente.grupo_sanguineo}</h3>
+                            <h3> ${nuevo_paciente.factor}</h3>
+                            `;
+    }
 
-let bandera = true;
-let impresora = 20000;
-let laptops = 50000;
-let monitores = 15000;
+    //Agrega al paciente al array base_de_pacientes
+    function agregar_paciente() {
+        base_de_pacientes.push(nuevo_paciente);
+        console.log(base_de_pacientes);
+    }
 
-while (bandera == true) {
-    let compra = prompt("¿Qué desea comprar? Tenemos impresoras, laptops y monitores. Escriba FIN si desea terminar su compra.");
-    compra = compra.toLowerCase();
-    if (compra == "impresoras") {
-        let compra_seleccionada = impresora;
-        let cuota_seleccionada = prompt("¿En cuantas cuotas desea hacerlo? El maximo es de 12");
-        imprimir_resultados(cuota_seleccionada, compra, compra_seleccionada);
-    }
-    else if (compra == "laptops") {
-        let compra_seleccionada = laptops;
-        let cuota_seleccionada = prompt("¿En cuantas cuotas desea hacerlo? El maximo es de 12");
-        imprimir_resultados(cuota_seleccionada, compra, compra_seleccionada);
-    }
-    else if (compra == "monitores") {
-        let compra_seleccionada = monitores;
-        let cuota_seleccionada = prompt("¿En cuantas cuotas desea hacerlo? El maximo es de 12");
-        imprimir_resultados(cuota_seleccionada, compra, compra_seleccionada);
-    }
-    else if (compra == "fin") {
-        bandera = false;
-    }
-    else {
-        console.log("Verifique si lo que escribio es correcto")
+    if (nombre_capturado != "" && apellido_capturado != "" && correo_capturado != "") {
+        nuevo_paciente = new paciente(nombre_capturado, apellido_capturado, correo_capturado, grupo_sanguineo_capturado, factor_capturado);
+        console.log(nuevo_paciente);
+        agregar_paciente();
+        agrega_datos_paciente();
     }
 }

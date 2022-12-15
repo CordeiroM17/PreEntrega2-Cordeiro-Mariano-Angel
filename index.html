@@ -9,51 +9,66 @@
 </head>
 <body>
 
-    <form action="">
-        <h1>Programa para comprar impresoras, laptops y monitores</h1>
-        <div class="form__name__container">
-            <div class="nombre">
-                <label for="nombre">Nombre</label>
-                <input id="nombre" type="text" placeholder="Nombre" name="nombre">
-            </div>
-            <div class="apellido">
-                <label for="apellido">Apellido</label>
-                <input id="apellido" type="text" placeholder="Apellido" name="apellido">
-            </div>
-        </div>
-        <div class="correo__container">
-            <label for="correo">Correo Electronico</label>
-            <input id="correo" type="text" placeholder="Correo Electronico" name="correo">
-        </div>
-        <div class="cuotas-stock__container">
-            <div class="stock__container">
-                <div class="stock">
-                    <label class="title" for="stock">Stock</label>
-                    <select name="stock" id="stock">
-                        <option value="stock">Impresoras</option>
-                        <option value="stock">Laptops</option>
-                        <option value="stock">Monitores</option>
-                    </select>
+    <main>
+        <form class="container" action="">
+            <h1>Formulario Medico</h1>
+            <div class="form__name__container">
+                <div class="nombre">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" placeholder="Nombre" name="nombre">
+                </div>
+                <div class="apellido">
+                    <label for="apellido">Apellido</label>
+                    <input id="apellido" type="text" placeholder="Apellido" name="apellido">
                 </div>
             </div>
-            <div class="cuotas__container">
-                <div class="cuotas">
-                    <label class="title" for="cuota">Cuotas</label>
-                    <input type="radio" value="3" name="cuota">
-                    <label for="cuota">3</label>
-                    <input type="radio" value="6" name="cuota">
-                    <label for="cuota">6</label>
-                    <input type="radio" value="12" name="cuota">
-                    <label for="cuota">12</label>
-                    <input type="radio" value="18" name="cuota">
-                    <label for="cuota">18</label>
+            <div class="correo__container">
+                <label for="correo">Correo Electronico</label>
+                <input id="correo" type="text" placeholder="Correo Electronico" name="correo">
+            </div>
+            <div class="sangre__container">
+                <div class="grupo-sanguineo__container">
+                    <div class="grupo-sanguineo">
+                        <label class="title" for="grupo_sanguineo">Grupo Sanguineo</label>
+                        <select name="grupo_sanguineo" id="grupo_sanguineo">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="factor__container">
+                    <div class="factor">
+                        <label class="title" for="factor">Factor RH</label>
+                        <select name="factor" id="factor">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                    </div>
                 </div>
             </div>
+            <div class="btn__container">
+                <button class="btn" onclick="capturar()" type="reset">Enviar</button>
+            </div>
+        </form>
+    
+        <div id="tabla">
+            <h2>Pacientes Cargados</h2>
+            <div id="container_datos">
+                <div class="datos">
+                    <h3>Nombre</h3>
+                    <h3>Apellido</h3>
+                    <h3>Correo</h3>
+                    <h3>Grupo Sanguineo</h3>
+                    <h3>Factor RH</h3>
+                </div>
+            </div>
+            <div class="btn__container">
+                <button class="btn" onclick="eliminar_paciente()" type="reset">Eliminar Utlimo Paciente</button>
+            </div>
         </div>
-        <div class="btn__container">
-            <input class="btn" type="submit" value="Enviar">
-        </div>
-    </form>
+    </main>
 
     <script src="index.js"></script>
 </body>
